@@ -8,6 +8,10 @@
 - [example cucumber coverage report](./example/cucumber/results.html) (html)
 - [example cucumber coverage report](./example/cucumber/results.ndjson) (ndjson)
 
+## CI and Xray (Jira)
+
+- [CI exports Cucumber reports to Xray](https://docs.getxray.app/display/XRAY/Testing+using+Cucumber+in+Java)
+
 ## Reference
 
 - [cucumber.io](https://cucumber.io/)
