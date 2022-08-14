@@ -11,6 +11,7 @@
 ## CI and Xray (Jira)
 
 - [CI exports Cucumber reports to Xray](https://docs.getxray.app/display/XRAY/Testing+using+Cucumber+in+Java)
+- [CI with Jenkins and Cucumber](https://cucumber.io/docs/guides/continuous-integration/)
 
 ## Reference
 
