@@ -19,6 +19,7 @@ public class GoogleSearchingStepDefinitions {
 
     // https://sites.google.com/chromium.org/driver/getting-started?authuser=0
     // https://www.testingdocs.com/cucumber-java-bdd-framework/
+    // https://github.com/SeleniumHQ/seleniumhq.github.io
     // https://github.com/reportportal/agent-java-cucumber/tree/develop/src/test/resources/features
 
     private final Logger log = LoggerFactory.getLogger(GoogleSearchingStepDefinitions.class);
