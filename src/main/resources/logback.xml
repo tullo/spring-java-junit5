@@ -10,4 +10,5 @@
     <root level="WARN">
         <appender-ref ref="STDOUT"/>
     </root>
+    <logger name="io.cucumber.examples.spring.application" level="info"/>
 </configuration>
