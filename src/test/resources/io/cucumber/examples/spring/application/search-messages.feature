@@ -2,7 +2,7 @@
 # Preventing persisted data from leaking between Scenarios.
 # Try removing the @txn tag and see what happens.
 @txn
-Feature: Search
+Feature: Search Messages
 
   Background:
     Given there is a user
