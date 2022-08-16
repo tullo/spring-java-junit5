@@ -11,5 +11,5 @@ import static io.cucumber.junit.platform.engine.Constants.GLUE_PROPERTY_NAME;
 @IncludeEngines("cucumber")
 @SelectClasspathResource("io/cucumber/examples/spring/application")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "io.cucumber.examples.spring.application")
-public class RunCucumberTest {
+public class RunWikipediaTest {
 }
