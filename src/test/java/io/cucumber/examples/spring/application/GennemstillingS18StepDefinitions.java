@@ -1,6 +1,8 @@
 package io.cucumber.examples.spring.application;
 
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -15,9 +17,9 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class UserListingStepDefinitions {
+public class GennemstillingS18StepDefinitions {
 
-    private final Logger log = LoggerFactory.getLogger(UserListingStepDefinitions.class);
+    private final Logger log = LoggerFactory.getLogger(GennemstillingS18StepDefinitions.class);
     private static final String BASE_URL = "http://10.141.159.158";
     private static final int PORT = 3000;
     private static final String SIGNING_KEY_ID = "54bb2165-71e1-41a6-af3e-7da4a0e1e2c1";
@@ -26,8 +28,7 @@ public class UserListingStepDefinitions {
     private static List<Map<String, String>> users;
     private static List<Map<String, String>> dafUsers;
 
-
-    @Given("User is authorized")
+    @Given("User is authorized s18")
     public void userIsAuthorized() {
         RestAssured.baseURI = BASE_URL;
         RestAssured.port = PORT;
@@ -43,8 +44,10 @@ public class UserListingStepDefinitions {
         log.info("User is authorized");
     }
 
-    @Given("A list of users are available")
-    public void aListOfUsersAreAvailable() {
+
+    @Given("DAF service returnerer en liste med vurderinger for {string}")
+    public void hentVurderingerFraDAF(final String params) {
+        log.info("DAF service returnerer en liste med vurderinger for {}", params);
         RestAssured.baseURI = BASE_URL;
         RestAssured.port = PORT;
         RequestSpecification request = RestAssured.given();
@@ -57,7 +60,22 @@ public class UserListingStepDefinitions {
         log.info("User list contains {} entries", users.size());
     }
 
-    @When("A list of users are available from DAF")
+    @Given("GATEWAY service returnerer en liste med vurderinger for {string}")
+    public void hentVurderingerFraGateway(final String params) {
+        log.info("GATEWAY service returnerer en liste med vurderinger for {}", params);
+        RestAssured.baseURI = BASE_URL;
+        RestAssured.port = PORT;
+        RequestSpecification request = RestAssured.given();
+        request.header("Authorization", "Bearer " + token).header("Content-Type", "application/json");
+
+        response = request.get("/v1/users/1/50");
+        assertEquals(200, response.getStatusCode());
+        users = response.jsonPath().getList("");
+        assertTrue(users.size() > 0);
+        log.info("User list contains {} entries", users.size());
+    }
+
+    @When("Begge lister indeholder vurderinger")
     public void aListOfUsersAreAvailableFromDAF() {
         dafUsers = new ArrayList<>();
         Map<String, String> u1 = new HashMap<>();
@@ -66,9 +84,9 @@ public class UserListingStepDefinitions {
         dafUsers.add(u2);
     }
 
-    @Then("The lists are equal in size and content")
+    @Then("Begge lister er lige store og har samme indhold")
     public void theListsAreEqualInSizeAndContent() {
         assertEquals(users.size(), dafUsers.size());
-        // assertEquals(users, dafUsers);
+        //assertEquals(users, dafUsers);
     }
 }
