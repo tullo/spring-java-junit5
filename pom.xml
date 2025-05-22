@@ -15,7 +15,7 @@
     <properties>
         <project.Automatic-Module-Name>io.cucumber.examples.spring.application</project.Automatic-Module-Name>
         <!-- resulting jar: manifest => <Automatic-Module-Name>io.cucumber.examples.spring.application</Automatic-Module-Name> -->
-        <spring-boot.version>3.4.5</spring-boot.version>
+        <spring-boot.version>3.4.6</spring-boot.version>
         <junit-jupiter.version>5.12.2</junit-jupiter.version>
         <base.java.version>17</base.java.version>
         <java.version>17</java.version>
